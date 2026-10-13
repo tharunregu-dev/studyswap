@@ -1,0 +1,3 @@
+package com.studyswap.controller;
+import com.studyswap.dto.*;import com.studyswap.service.ListingRules;import jakarta.validation.Valid;import org.springframework.http.*;import org.springframework.web.bind.annotation.*;
+@RestController @RequestMapping("/api/books") public class BookController {private final ListingRules rules;public BookController(ListingRules rules){this.rules=rules;}@PostMapping public ResponseEntity<ApiResponse<BookRequest>> create(@Valid @RequestBody BookRequest book){rules.validate(book);return ResponseEntity.status(HttpStatus.CREATED).body(ApiResponse.ok("Book published successfully",book));}@GetMapping public ApiResponse<Object> list(){return ApiResponse.ok("Books retrieved",java.util.List.of());}}

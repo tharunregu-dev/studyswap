@@ -1,0 +1,5 @@
+spring:
+  application: { name: studyswap-api }
+  datasource: { url: ${DB_URL:jdbc:mysql://localhost:3306/studyswap}, username: ${DB_USERNAME:studyswap}, password: ${DB_PASSWORD:studyswap} }
+  jpa: { hibernate: { ddl-auto: validate } }
+server: { port: 8080 }

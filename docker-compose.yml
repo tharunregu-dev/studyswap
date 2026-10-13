@@ -1,0 +1,6 @@
+services:
+  mysql:
+    image: mysql:8.4
+    environment: { MYSQL_DATABASE: studyswap, MYSQL_USER: studyswap, MYSQL_PASSWORD: studyswap, MYSQL_ROOT_PASSWORD: root }
+    ports: ["3306:3306"]
+    volumes: ["./database/schema.sql:/docker-entrypoint-initdb.d/schema.sql"]
